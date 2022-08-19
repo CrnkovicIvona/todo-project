@@ -1,0 +1,31 @@
+/*css varijable*/
+:root{
+    --dark: #374151;
+    --darker: #1F2937;
+    --darkest: #111827;
+    --gray: #6B7280;
+    --LIGHT: ##EEE;
+    --pink: #EC4899;
+    --purple: #8B5Cf6;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    font-family: 'Fira sans', sans-serif;
+}
+
+body{
+    /*jedno pored drugog poreda*/
+    display: flex;
+    /*jedno ispod drugoga*/
+    flex-direction: column;
+    /*cijela stranica*/
+    min-height: 100vh;
+    background: var(--dark);
+    color: #FFF;
+}
+
+header{
+    padding: 2rem 1rem;
+}
