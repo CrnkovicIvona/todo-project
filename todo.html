@@ -9,53 +9,52 @@
     <link rel="stylesheet" href="todo.css">
 </head>
 <body>
-    <header>
-        <!--naslov-->
-        <h1>Task List 2022</h1> 
-        <form id="new-task-form">
-            <!--input polje sa tekstom unutar njega-->
-            <input 
-                type="text" 
-                id="new-task-input-field"
-                placeholder="What do you have planned?" 
-            />
-            <!--gumb dodaj zadatak-->
-            <input 
-                type="submit"
-                id="new-task-submit"
-                value="Add task"
-            />
-        </form>
-    </header>
-    <main>
-        <section class="task-list"></section>
-        <!--naslov liste sa zadacima-->
-            <h2>Tasks</h2>
+    <div class="wrapper">
+        <header>
+            <!--naslov-->
+            <h1>Todo App</h1> 
+            <form id="new-task-form">
+                <!--input polje sa tekstom unutar njega-->
+                <input 
+                    type="text" 
+                    id="new-task-input-field"
+                    placeholder="What do you have planned?" 
+                />
+                <!--gumb dodaj zadatak-->
+                <input 
+                    type="submit"
+                    id="new-task-submit"
+                    value="Add task"
+                />
+            </form>
+        </header>
+        <main>
+                <section class="task-list"></section>
+                 <!--naslov liste sa zadacima-->
+                <h2>Tasks</h2>
 
-            <div id="tasks">
-                <div class="task">
+                <!--<div id="tasks">
+                    <div class="task">
 
-                    <div class="content">
-                        <!--input polje, text liste sa zadacima je u value,
-                             readonly znači da se tekst ne može uređivati, samo pročitati i kopirati-->
-                        <input 
-                            type="text"
-                            class="text"
-                            value="My shiny task"
-                            readonly
-                        />
+                        <div class="content">
+                    
+                            <input 
+                                type="text"
+                                class="text"
+                                value="My shiny task"
+                                readonly
+                            />
+                        </div>
+    
+                        <div class="actions">
+                            <button class="edit">Edit</button>
+                            <button class="delete">Delete</button>
+                        </div>-->
                     </div>
-                    <!--gumbi uredi i obriši-->
-                    <div class="actions">
-                        <button class="edit">Edit</button>
-                        <button class="delete">Delete</button>
-                    </div>
-
                 </div>
+        </main>
 
-            </div>
-    </main>
-
-    <script src="todo.js"></script>
+        <script src="todo.js"></script>
+    </div>
 </body>
 </html>

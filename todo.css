@@ -4,7 +4,7 @@
     --darker: #1F2937;
     --darkest: #111827;
     --gray: #6B7280;
-    --LIGHT: ##EEE;
+    --light: #EEE;
     --pink: #EC4899;
     --purple: #8B5Cf6;
 }
@@ -12,20 +12,153 @@
 *{
     box-sizing: border-box;
     margin: 0;
+    padding: 0;
     font-family: 'Fira sans', sans-serif;
 }
 
 body{
-    /*jedno pored drugog poreda*/
-    display: flex;
-    /*jedno ispod drugoga*/
-    flex-direction: column;
-    /*cijela stranica*/
-    min-height: 100vh;
-    background: var(--dark);
-    color: #FFF;
+    width: 100%; 
 }
 
-header{
-    padding: 2rem 1rem;
+.wrapper {
+    margin: 120px auto;
+    width: 100%;
+    background: #fff;
+    border-radius: 10px;
+    padding: 25px;
+    max-width:750px;
+    flex: 1 1 0%;
 }
+
+h1 {
+    font-size: 3,5rem;
+    font-weight: 300;
+    color: var(--gray);
+    margin-bottom: 1rem;
+}
+
+h2{
+    font-size: 1,5rem;
+    font-weight: 300;
+    color: var(--gray);
+    margin-bottom: 1rem;
+}
+
+#new-task-form {
+    /*jedno do drugoga*/
+    display: flex;
+}
+
+/*uklanjam jer želim sama urediti*/
+input, button {
+    appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+}
+
+#new-task-input-field{
+    flex: 1 1 0%;
+    background: linear-gradient(45deg, #EE7752, #E73C7E, #2EA6D5, #23D5AB);
+    background-size: 400% 400%;
+    padding: 1rem;
+    border-radius: 1rem;
+    margin-right: 1rem;
+    color: var(--light);
+    font-size: 1.25rem;
+}
+
+#new-task-input::placeholder {
+    color: var(--gray);
+}
+
+#new-task-submit{
+    /*boja pozdaine*/
+    color: var(--pink);
+    font-size: 1.25rem;
+    background-image: linear-gradient(45deg, #EE7752, #E73C7E, #2EA6D5, #23D5AB);
+    background-size: 400% 400%;
+    /*boja pozdaine se odnosi na tekst*/
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    cursor:pointer;
+    transition: 0,4s;
+}
+
+#new-task-submit:hover{
+ opacity:0,8;
+}
+
+#new-task-submit:active{
+    opacity:0,6;
+}
+
+.task-list{
+    padding: 1rem;
+}
+
+.task-list h2{
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--gray);
+    margin-bottom: 1rem;
+}
+
+#tasks .task{
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(202, 200, 201);
+    padding: 1rem;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+}
+
+/*text u input polju se proširuje prema dužem tekstu, ne presječe se*/
+#tasks .task .content{
+    flex: 1 1 0%;
+}
+
+#tasks .task .content .text {
+    color: var(--light);
+    font-size: 1.125rem;
+    width: 100%;
+    display: block;
+    transition: 0,4s;
+}
+
+#tasks .task .content .text:not(:read-only) {
+    color: var(--pink);
+}
+
+#tasks .task .actions {
+    display: flex;
+    margin: 0 -0.5rem;
+}
+
+.task .actions button {
+    cursor: pointer;
+    margin: 0 0.5rem;
+    font-size: 1.125rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: 0,4s;
+}
+
+.task .actions button:hover {
+    opacity:0,8;
+   }
+   
+   .task .actions button:active {
+    opacity:0,6;
+   }
+
+   .task .actions .edit {
+    background-image: linear-gradient(to right, var(--pink), var(--purple));
+    /*boja pozdaine se odnosi na tekst*/
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+   }
+
+   .task .actions .delete {
+    color: rgb(220, 20, 113);
+   }
