@@ -1,24 +1,31 @@
+/*u inspectu pod console vidim što je sve u window objectu */
+console.log(window);
+
 /*kada je cijela stranica učitana */
 window.addEventListener('load', () =>{
+    /*querySelector odabire id,class,tag itd, ali single element, ako ih ima više odabrat će prvog npr. ako je h1 onda prvi h1 odabire, a
+    ako želim odabrati multiple elements onda pišem npr. console.log(document.querySelectorAll('.item')); 
+    ili const items = document.querySelectorAll('item');
+    te tako odabirem više elemenata koje sam imenovala kao item*/
     const form = document.querySelector("#new-task-form");
     const input = document.querySelector("#new-task-input-field");
     const list_el = document.querySelector("#tasks");
 
- form.addEventListener('submit', (e) =>{
+ form.addEventListener('submit', (e) => {
     e.preventDefault();
 
     const task = input.value;
+
     if (!task) {
         alert("Please fill out the task.");
         return;
     }
 
     const task_el = document.createElement("div");
-    task_el.classList.add("taks");
+    task_el.classList.add("task");
 
     const task_content_el = document.createElement("div");
     task_content_el.classList.add("content");
-    task_content_el.innerText = task;
 
     task_el.appendChild(task_content_el);
 
@@ -30,7 +37,8 @@ window.addEventListener('load', () =>{
 
     task_content_el.appendChild(task_input_el);
 
-    const task_actions_el = documents.createElement ("div");
+    /*buttoni*/
+    const task_actions_el = document.createElement("div");
     task_actions_el.classList.add("actions");
 
     const task_edit_el = document.createElement("button");
@@ -38,20 +46,23 @@ window.addEventListener('load', () =>{
     task_edit_el.innerHTML ="Edit";
 
     const task_delete_el = document.createElement("button");
-    task_edit_el.classList.add("delete");
-    task_edit_el.innerHTML ="Delete";
+    task_delete_el.classList.add("delete");
+    task_delete_el.innerHTML ="Delete";
 
     task_actions_el.appendChild(task_edit_el);
     task_actions_el.appendChild(task_delete_el);
 
     task_el.appendChild(task_actions_el);
 
+    /*apply to the page*/
     list_el.appendChild(task_el);
 
     input.value = "";
 
+
+    /*edit i delete buttons*/
     task_edit_el.addEventListener('click', () => {
-        if (ask_edit_el.innerText.toLowerCase() == "edit") {
+        if (task_edit_el.innerText.toLowerCase() == "edit") {
             task_input_el.removeAttribute("readonly");
             task_input_el.focus();
             task_edit_el.innerText = "Save";
@@ -59,10 +70,13 @@ window.addEventListener('load', () =>{
             task_input_el.setAttribute("readonly", "readonly");
             task_edit_el.innerText = "Edit";
         }
-        
 
+        });
 
-        })
+    task_delete_el.addEventListener('click', () =>{
+        list_el.removeChild(task_el);
+        });
+
     })
 
 })
